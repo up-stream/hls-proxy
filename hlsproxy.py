@@ -370,13 +370,13 @@ class HlsProxy:
         return self.outDir + self.getSegmentRelativeUrl(item)
 
     def getSegmentRelativeUrl(self, item):
-        return "stream" + str(item.mediaSequence) + ".ts"
+        return "channel" + str(item.mediaSequence) + ".ts"
 
     def getClientPlaylist(self):
-        return self.outDir + "stream.m3u8"
+        return self.outDir + "channel.m3u8"
 
     def get_individial_client_playlist(self, media_sequence):
-        return self.outDir + "stream." + str(media_sequence) + ".m3u8"
+        return self.outDir + "channel." + str(media_sequence) + ".m3u8"
 
     def onPlaylist(self, playlist):
         if playlist.isValid():
@@ -447,7 +447,7 @@ class HlsProxy:
             
             proxiedMedia = copy.deepcopy(media)
             masterPlaylist.medias.append(proxiedMedia)
-            proxiedMedia.absoluteUrl = os.path.join(relativePath, "stream.m3u8")
+            proxiedMedia.absoluteUrl = os.path.join(relativePath, "channel.m3u8")
             
             if media.relativeUrl:
                 # EXT-X-MEDIA URI is optional so it's possible to have a media wihtout relativeUrl
