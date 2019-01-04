@@ -433,7 +433,7 @@ class HlsProxy:
             
             masterVariant = copy.deepcopy(variant)
             masterPlaylist.variants.append(masterVariant)
-            masterVariant.absoluteUrl = str(variant.bandwidth) + "/stream.m3u8"
+            masterVariant.absoluteUrl = str(variant.bandwidth) + "/channel.m3u8"
             
             self.start_subproxy(subOutDir, variant.absoluteUrl)
 
